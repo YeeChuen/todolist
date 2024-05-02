@@ -16,3 +16,14 @@ npm install -g json-server
 "live-server": "live-server --ignore=./db.json ."
 "start": "npm run json-server & npm run live-server"
 ```
+
+now your script should look like
+
+```
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "json-server": "json-server --watch db.json",
+    "live-server": "live-server --ignore=./db.json .",
+    "start": "npm run json-server & npm run live-server"
+  }
+```
