@@ -1,5 +1,18 @@
+## Project Goals
 
-## To start the local web server
+## Dependencies
+
+`node.js`
+
+install node.js on your device by using either:
+
+[nvm](https://github.com/nvm-sh/nvm)
+
+or
+
+[node](https://nodejs.org/en/download)
+
+## Installation
 
 1. install npm packages
 
@@ -28,3 +41,14 @@ now your script should look like
     "start": "npm run json-server & npm run live-server"
   }
 ```
+
+## Start local server
+
+To start the local server for `todolist` app, use
+
+windows:
+
+
+macOS:
+
+`npm run start`
