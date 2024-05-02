@@ -38,7 +38,8 @@ now your script should look like
     "test": "echo \"Error: no test specified\" && exit 1",
     "json-server": "json-server --watch db.json",
     "live-server": "live-server --ignore=./db.json .",
-    "start": "npm run json-server & npm run live-server"
+    "start": "npm run json-server & npm run live-server",
+    "dev": "npm-run-all --parallel json-server live-server"
   }
 ```
 
@@ -47,8 +48,7 @@ now your script should look like
 To start the local server for `todolist` app, use
 
 windows:
-
+`npm run dev`
 
 macOS:
-
 `npm run start`
