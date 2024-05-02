@@ -7,6 +7,7 @@
 npm init -y
 npm install live-server
 npm install -g json-server
+npm install npm-run-all --save-dev
 ```
 
 2. set up json server for mock db, add this 3 lines to `package.json` under `"scripts"`
