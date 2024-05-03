@@ -1,5 +1,17 @@
 ## Project Goals
 
+This project is part of an exercise for a 2 weeks frontend JS, HTML, CSS bootcamp.
+One of the concept taught is the MVC(Model View Controller) architecture design.
+Model is used to manage data and restful APIs, 
+View is used to manage the elements in the view port, such as deleting/creating dom element (DOM manipulation),
+while Controller allow user to interact with web page, and connects the interaction between Model and View.
+
+In this simple Todolist project, we use json-server as the backend database, JavaScript as the client and server, 
+and the UI using HTML and CSS. Other than exploring MVC architecture design, APIs, doing request, response data structure 
+, CRUD properties and much more is being explored and learnt.
+
+In the Todolist app, user are allow add new todo, delete existing todo, and update existing todo.
+
 ## Dependencies
 
 `node.js`

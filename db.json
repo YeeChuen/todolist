@@ -1,20 +1,52 @@
 {
-    "todos": [
-      {
-        "id": "980d",
-        "content": "todo 1"
-      },
-      {
-        "id": "cb3a",
-        "content": "todo 2"
-      },
-      {
-        "id": "0deb",
-        "content": "todo 3"
-      },
-      {
-        "id": "1625",
-        "content": "todo 123"
-      }
-    ]
+  "todos": [
+    {
+      "id": "980d",
+      "content": "todo 1"
+    },
+    {
+      "id": "cb3a",
+      "content": "todo 2"
+    },
+    {
+      "id": "0deb",
+      "content": "todo 3"
+    },
+    {
+      "id": "1625",
+      "content": "todo 123"
+    },
+    {
+      "id": "fd90",
+      "content": "implement delete"
+    },
+    {
+      "id": "538f",
+      "content": "implement delete"
+    },
+    {
+      "id": "e25c",
+      "content": "new todo"
+    },
+    {
+      "id": "76b5",
+      "content": "try clear "
+    },
+    {
+      "id": "b503",
+      "content": "new try"
+    },
+    {
+      "id": "6058",
+      "content": "using innerHTML"
+    },
+    {
+      "id": "d24e",
+      "content": "another try"
+    },
+    {
+      "id": "d524",
+      "content": "Another one"
+    }
+  ]
 }

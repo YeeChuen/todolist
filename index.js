@@ -7,24 +7,57 @@ const apis = function() { // APIs to do HTTP requests.
         return todosPromise.then((response) => response.json()); // <-- resolve by returning data.json()
     }
 
-    return {getTodos};
+    const createTodo = (newTodo) => {
+        const todoPromise = fetch(baseURL, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newTodo), // body data type must match "Content-Type" header
+        });
+        return todoPromise.then((response) => response.json()); // <-- resolve by returning data.json()
+    }
+
+    return {
+        getTodos,
+        createTodo,
+    };
 }();
 
 const view = function() { // manage the view, get DOM element, add/create DOM element etc.
     const addBtn = document.querySelector(".add__btn");
     const inputValue = document.querySelector(".input__string")
-    const todoContainer = document.querySelector(".todo__container")
+    const todoList = document.querySelector(".todo__list")
 
     const getInputValue = () => {
         return inputValue.value;
     }
 
+    const createBulletItem = (todo) => {
+        const liElem = document.createElement("li");
+
+        const delButton = document.createElement("button");
+        delButton.classList.add("todo__delete-button");
+        delButton.appendChild(document.createTextNode("delete"));
+        liElem.appendChild(delButton);
+        
+        const editButton = document.createElement("button");
+        editButton.classList.add("todo__edit-button");
+        editButton.appendChild(document.createTextNode("edit"));
+        liElem.appendChild(editButton);
+
+        const spanElem = document.createElement("span");
+        spanElem.appendChild(document.createTextNode(` : ${todo}`));
+        liElem.appendChild(spanElem);
+
+        return liElem;
+    }
+
     const renderTodos = (todos) => {
-        let tempTodos = ""
+        todoList.innerHTML = "";
         todos.forEach((e, i) => {
-            tempTodos += `<div> ${e.content} </div>` // <-- simple DOM manipulation update
+            todoList.appendChild(createBulletItem(e.content))
         })
-        todoContainer.innerHTML = tempTodos;
     }
 
     return {
@@ -44,8 +77,6 @@ const model = function() { // manage the data, in the form of data structure.
         }
 
         get todos() {
-            console.log("inside get todos.")
-            console.log(this.#todos);
             return this.#todos;
         }
 
@@ -57,14 +88,10 @@ const model = function() { // manage the data, in the form of data structure.
         subscribe(callbackFn) {
             this.#onChange = callbackFn;
         }
-
-        printTodo() {
-            console.log(this.#todos);
-        }
     }
-    const {getTodos} = apis;
+    const {getTodos, createTodo} = apis;
 
-    return {Todos, getTodos};
+    return {Todos, getTodos, createTodo};
 }();
 
 const controller = function(model, view) { // connects model and view, allow user to interact.
@@ -80,7 +107,14 @@ const controller = function(model, view) { // connects model and view, allow use
     // click button
     view.addBtn.addEventListener("click", (event) => {
         event.preventDefault();
-        console.log(view.getInputValue());
+        const todoObject = {
+            content: view.getInputValue(),
+        }
+
+        console.log(todoObject);
+        model.createTodo(todoObject).then((data) => {
+            todoState.todos = [...todoState.todos, data];
+        })
     })
 
     const bootstrap = function(){
@@ -91,7 +125,6 @@ const controller = function(model, view) { // connects model and view, allow use
         todoState.subscribe(() => {
             view.renderTodos(todoState.todos);
         })
-        // trying to update todoState's callbackfn.
 
     };
 
