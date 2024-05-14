@@ -1,3 +1,7 @@
+## TodoList
+
+Needed a platform to track a list of task to be completed? TodoList is a web application that allow you to add new task, update the task, and deletes it after it's being done.
+
 ## Project Goals
 
 This project is part of an exercise for a 2 weeks frontend JS, HTML, CSS bootcamp.
