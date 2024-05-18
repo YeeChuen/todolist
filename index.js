@@ -57,28 +57,7 @@ const view = function() { // manage the view, get DOM element, add/create DOM el
         inputValue.value = "";
     };
 
-    const createBulletItem = (content, id) => {
-        const liElem = document.createElement("li");
-        liElem.setAttribute("id", id);
 
-        const delButton = document.createElement("button");
-        delButton.classList.add("todo__delete-button");
-        delButton.appendChild(document.createTextNode("delete"));
-        liElem.appendChild(delButton);
-        
-        const editButton = document.createElement("button");
-        editButton.classList.add("todo__edit-button");
-        editButton.appendChild(document.createTextNode("edit"));
-        liElem.appendChild(editButton);
-
-        const spanElem = document.createElement("span");
-        spanElem.appendChild(document.createTextNode(` : ${content}`));
-        liElem.appendChild(spanElem);
-
-        //openEditBox(liElem);
-
-        return liElem;
-    }
 
     const isDeleteButton = (className) => {
         return className === "todo__delete-button";
@@ -135,6 +114,29 @@ const view = function() { // manage the view, get DOM element, add/create DOM el
     }
     const isSaveEditButton = (className) => {
         return className === "edit__save-button";
+    }
+    
+    const createBulletItem = (content, id) => {
+        const liElem = document.createElement("li");
+        liElem.setAttribute("id", id);
+
+        const delButton = document.createElement("button");
+        delButton.classList.add("todo__delete-button");
+        delButton.appendChild(document.createTextNode("delete"));
+        liElem.appendChild(delButton);
+        
+        const editButton = document.createElement("button");
+        editButton.classList.add("todo__edit-button");
+        editButton.appendChild(document.createTextNode("edit"));
+        liElem.appendChild(editButton);
+
+        const spanElem = document.createElement("span");
+        spanElem.appendChild(document.createTextNode(` : ${content}`));
+        liElem.appendChild(spanElem);
+
+        //openEditBox(liElem);
+
+        return liElem;
     }
 
     const renderTodos = (todos) => {
